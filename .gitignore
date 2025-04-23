@@ -1,0 +1,3 @@
+ai_components/embeddings/
+vector_db/
+.env

@@ -1,0 +1,64 @@
+version: '3'
+
+services:
+  dilekce-uretici:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: sh -c "cd dilekce_uretici && python run_optimized.py"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data/dilekce_uretici:/app/dilekce_uretici/data
+      - ./logs:/app/logs
+    restart: always
+
+  sozlesme-analizi:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: sh -c "cd sozlesme_analizi && python run_optimized.py"
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./data/sozlesme_analizi:/app/sozlesme_analizi/data
+      - ./logs:/app/logs
+    restart: always
+
+  hukuki-chatbot:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: sh -c "cd hukuki_chatbot && python run_optimized.py"
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./data/hukuki_chatbot:/app/hukuki_chatbot/data
+      - ./logs:/app/logs
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - dilekce-uretici
+      - sozlesme-analizi
+      - hukuki-chatbot
+    restart: always
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf
+      - ./frontend/build:/usr/share/nginx/html
+    depends_on:
+      - frontend
+      - dilekce-uretici
+      - sozlesme-analizi
+      - hukuki-chatbot
+    restart: always
