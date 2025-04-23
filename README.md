@@ -48,3 +48,4 @@ Platform, KVKK (Kişisel Verilerin Korunması Kanunu) ile uyumludur. Detaylı bi
 ## Lisans
 
 Bu proje özel lisans altında dağıtılmaktadır. Tüm hakları saklıdır.
+# hukuk-ai
