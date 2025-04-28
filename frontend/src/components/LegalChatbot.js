@@ -121,7 +121,7 @@ const LegalChatbot = () => {
       setMessages([
         {
           role: 'assistant',
-          content: 'Merhaba! Ben Türkiye Hukuk AI Platformu'nun hukuki chatbot'uyum. Size nasıl yardımcı olabilirim?',
+          content: "Merhaba! Ben Türkiye Hukuk AI Platformu'nun hukuki chatbot'uyum. Size nasıl yardımcı olabilirim?",
           timestamp: new Date().toISOString()
         }
       ]);
