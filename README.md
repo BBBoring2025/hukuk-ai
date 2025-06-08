@@ -41,6 +41,19 @@ Türkiye Hukuk AI Platformu, avukatlar, KOBİ'ler ve bireysel kullanıcılar iç
 
 Tarayıcınızda `http://localhost` adresine giderek platformu kullanabilirsiniz.
 
+## Numeroloji Aracı
+
+Hukuki uygulamadan ayrı olarak basit bir numeroloji aracı bulunmaktadır.
+`matrix22.py` betiği `utilities/matrix22` dizinine taşınmıştır. Aşağıdaki
+komutla çalıştırabilirsiniz:
+
+```bash
+python utilities/matrix22/matrix22.py "Ornek metin"
+```
+
+Bu düzenleme, hukuk uygulaması ile numeroloji aracını birbirinden ayırarak
+proje yapısını sadeleştirir.
+
 ## KVKK Uyumluluğu
 
 Platform, KVKK (Kişisel Verilerin Korunması Kanunu) ile uyumludur. Detaylı bilgi için `backend/kvkk` dizinindeki belgelere bakabilirsiniz.
